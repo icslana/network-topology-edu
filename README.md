@@ -65,7 +65,7 @@ The topology provides reliable connectivity within the department and ensures fl
 
 
 
-##🔧 Switch VLAN Instructions
+## 🔧 Switch VLAN Instructions
 To configure VLANs and trunking on your switches:
 Create two VLANs:
 VLAN 10 for Voice
