@@ -89,11 +89,11 @@ Switch(config-if-range)# exit
 bash```
 
 4. **Assign Voice VLAN to Ports**
- bash```
+```bash
 Switch(config)# interface range fa0/2-15
 Switch(config-if-range)# switchport voice vlan 10
 Switch(config-if-range)# exit
- bash```
+
 
 
 5. **Configure Trunk Port on Fa0/1**
