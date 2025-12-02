@@ -62,3 +62,33 @@ The topology provides reliable connectivity within the department and ensures fl
 | Server     | FastEthernet  | 192.168.4.2    | 255.255.255.0  | 192.168.4.1    |             |
 | IP Phone0  | FastEthernet  | 192.168.5.2    | 255.255.255.0  | 192.168.5.1    | Line: 0555  |
 | IP Phone2  | FastEthernet  | 192.168.5.3    | 255.255.255.0  | 192.168.5.1    | Line: 0555  |
+
+
+
+## 🔧 Switch VLAN Configuration Instructions
+Follow these steps to configure VLANs and trunking:
+
+1. **Create VLANs**
+```bash
+Switch> enable
+Switch# configure terminal
+Switch(config)# vlan 10
+Switch(config-vlan)# name Voice
+Switch(config-vlan)# exit
+Switch(config)# vlan 20
+Switch(config-vlan)# name Data
+Switch(config-vlan)# exit
+
+Switch(config)# interface range fa0/2-15
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 20
+Switch(config-if-range)# exit
+
+
+Switch(config)# interface range fa0/2-15
+Switch(config-if-range)# switchport voice vlan 10
+Switch(config-if-range)# exit
+
+Switch(config)# interface fa0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# exit
