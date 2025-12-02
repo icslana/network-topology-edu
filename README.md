@@ -65,39 +65,12 @@ The topology provides reliable connectivity within the department and ensures fl
 
 
 
-## 🔧 Switch VLAN Configuration Instructions
-Follow these steps to configure VLANs and trunking:
-
-1. **Create VLANs**
-bash```
-Switch> enable
-Switch# configure terminal
-Switch(config)# vlan 10
-Switch(config-vlan)# name Voice
-Switch(config-vlan)# exit
-Switch(config)# vlan 20
-Switch(config-vlan)# name Data
-Switch(config-vlan)# exit
-bash```
-
-3. **Configure Access Ports for Data VLAN**
-bash```
-Switch(config)# interface range fa0/2-15
-Switch(config-if-range)# switchport mode access
-Switch(config-if-range)# switchport access vlan 20
-Switch(config-if-range)# exit
-bash```
-
-4. **Assign Voice VLAN to Ports**
-```bash
-Switch(config)# interface range fa0/2-15
-Switch(config-if-range)# switchport voice vlan 10
-Switch(config-if-range)# exit
-
-
-
-5. **Configure Trunk Port on Fa0/1**
-```bash
-Switch(config)# interface fa0/1
-Switch(config-if)# switchport mode trunk
-Switch(config-if)# exit
+##🔧 Switch VLAN Instructions
+To configure VLANs and trunking on your switches:
+Create two VLANs:
+VLAN 10 for Voice
+VLAN 20 for Data
+Assign the switch ports connected to PCs, laptops, and other data devices to VLAN 20.
+Assign the switch ports connected to IP phones to VLAN 10 for voice traffic.
+Configure the uplink port between switches (or to the router) as a trunk port to carry traffic for multiple VLANs.
+Following these steps ensures that voice and data traffic are separated and properly routed throughout the network.
